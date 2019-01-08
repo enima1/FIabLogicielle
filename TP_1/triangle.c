@@ -81,7 +81,7 @@ float *readData(char *filename, float *tab){
     1) quand on détecte 2 virgule de suite on veut retourner -1
     2) quand on voit qu'une longueur vaut 0 on retourne -1
     3) quand on voit que c'est autre chose que des floats genre des lettres
-        on retourne 0 aussi
+        on retourne -1 aussi
     */
         int j;
         for(j = 0; j < 3 ; j++)
