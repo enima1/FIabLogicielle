@@ -40,15 +40,19 @@ void fill_tab_error(float * tab){
 
 }
 
-float *readData(char *filename){
-  float tab[3] = { -1 , -1 , -1};
+
+float *readData(char *filename, float *tab){
+
+      int i;
+      for(i = 0 ; i < 3 ; i ++)
+        tab[i] = -1;
 
       FILE * fp;
       char * line = NULL;
       size_t len = 0;
       ssize_t read;
 
-      fp = fopen("filename", "r");
+      fp = fopen(filename, "r");
       if (fp == NULL)
           exit(EXIT_FAILURE);
 
@@ -59,39 +63,43 @@ float *readData(char *filename){
           char *temp = strtok(line,delim);
           int compteur = 0;
 
-        	while(temp != NULL)
+          while(temp != NULL)
         	{
-            
-            if(temp == ""){
-              printf("test");
-              fill_tab_error(tab);
-              break;
-            }
+
             if(compteur > 2){
               fill_tab_error(tab);
               break;
             }
+
             tab[compteur] = atof(temp);
         		temp = strtok(NULL, delim);
             compteur++;
         	}
-          int i;
-          for(i = 0; i< 3; i++)
-            printf("%lf \n", tab[i]);
-      }
 
+        }
+    /*
+    1) quand on détecte 2 virgule de suite on veut retourner -1
+    2) quand on voit qu'une longueur vaut 0 on retourne -1
+    3) quand on voit que c'est autre chose que des floats genre des lettres
+        on retourne 0 aussi
+    */
+        int j;
+        for(j = 0; j < 3 ; j++)
+          if(tab[i] < 0) fill_tab_error(tab);
+        fclose(fp);
 
-
-
-      fclose(fp);
-
-
-
-   return tab;
 }
 
 
 int main(){
 
-  float *tab = readData("filename");
+  float tableau_main[3] ;
+  readData("filename",tableau_main);
+
+
+    int i ;
+    for ( i = 0 ; i < 3 ; i++)
+      printf("%lf\n", tableau_main[i] );
+
+
 }
