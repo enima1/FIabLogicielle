@@ -1,3 +1,8 @@
+/* File: triangle.c
+Auteurs: Amine Boudraa - Yannick Gosset
+crée le 08/01/2019
+*/
+
 /* Programme de tests pour la fonction typeTriangle de triangle.c */
 /*Utilisation : compiler triangle pour obtenir triangle.o
                 gcc -Wall -c triangle.c

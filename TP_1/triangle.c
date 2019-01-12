@@ -5,50 +5,45 @@ crée le 07/01/2019
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <ctype.h>
+#include <string.h>
 #include "triangle.h"
-#include <CUnit/CUnit.h>
 
 int isEquilateral(float a,float b,float c){
-  printf("%lf, %lf, %lf, %d, \n", a,b,c, (a == b && b == c ));
   return (a == b && b == c );
 }
 
 int isIsocele(float a,float b,float c){
-  printf("%lf, %lf, %lf, %d, \n", a,b,c, ( a == b || b == c || a == c));
   return ( a == b || b == c || a == c);
 }
 
 int findType(float a,float b,float c){
-  printf("findType\n");
   if(isEquilateral(a,b,c) == 1)return 3;
   else if(isIsocele(a,b,c) == 1)return 2;
   else return 1; // quelconque
 }
 
 int typeTriangle(float a,float b,float c){
-printf("typeTriangle\n");
-if( a <= 0 ||	b <= 0 ||	c<=0) return -1;
+  if( a <= 0 ||	b <= 0 ||	c<=0) return -1;
 
-//a est le côté le plus grand
-if( (a >= b) && (a >= c) ) {
-    if( a <= b + c ) return findType(a,b,c);
-    else return -1; // pas un triangle
-}
+  //a est le côté le plus grand
+  if( (a >= b) && (a >= c) ) {
+      if( a <= b + c ) return findType(a,b,c);
+      else return -1; // pas un triangle
+  }
 
-//b est le côté le plus grand
-if( (b >= a) && ( b >= c) ) {
-    if( b <= a + c ) return findType(a,b,c);
-    else return -1; // pas un triangle
-}
+  //b est le côté le plus grand
+  if( (b >= a) && ( b >= c) ) {
+      if( b <= a + c ) return findType(a,b,c);
+      else return -1; // pas un triangle
+  }
 
-//c est le côté le plus grand
-if( (c >= a) && (c >= b) ) {
-    if( c <= a + b ) return findType(a,b,c);
-    else return -1; // pas un triangle
-} 
+  //c est le côté le plus grand
+  if( (c >= a) && (c >= b) ) {
+      if( c <= a + b ) return findType(a,b,c);
+      else return -1; // pas un triangle
+  } 
 
-return -1;
+  return -1;
 }
 
 void fill_tab_error(float * tab){
@@ -59,7 +54,6 @@ void fill_tab_error(float * tab){
 
 
 float *readData(char *filename){
-  printf("readData\n");
   float *tab;
   tab = (float*) malloc ( sizeof(float) * 3 );
      
@@ -75,7 +69,6 @@ float *readData(char *filename){
   char * line = NULL;
   size_t len = 0;
   ssize_t read;
-  printf("check extension\n");
   //https://www.tutorialspoint.com/c_standard_library/c_function_strchr.htm
   char *extension = strchr(filename,'.');
   if(extension == NULL){
@@ -87,14 +80,12 @@ float *readData(char *filename){
     return tab;
   }
 
-  printf("opening file\n");
   fp = fopen(filename, "r");
   if (fp == NULL){
     fprintf(stderr, "%s introuvable.\n", filename);
     return tab;
   }
       
-  printf("reading file\n");
   int compteur = 0;
   while ((read = getline(&line, &len, fp)) != -1) {
 
