@@ -1,11 +1,10 @@
-/* File: triangle.py
-Auteurs: Amine Boudraa - Yannick Gosset
-crée le 12/01/2019
-*/
+"""
+    Fichier triangle.py
+    Programme de test pour les fonctions du triangle
+    Auteurs: Amine Boudraa - Yannick Gosset
+    Utilisation : executer en ligne de commande python triangle.py
 
-/* Programme de tests pour les fonctions du triangle  */
-/*Utilisation : executer en ligne de commande : python triangle.py
-*/
+"""
 import unittest
 
 
@@ -64,3 +63,6 @@ class typeTriangleTest(unittest.TestCase):
     def test_typeTriangle_not_a_triangle(self):
         result = typeTriangle(1,1,3)
         self.assertEqual(-1,result)
+
+if __name__ == '__main__':
+    unittest.main()

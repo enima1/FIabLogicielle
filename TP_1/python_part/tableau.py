@@ -1,12 +1,10 @@
-/* File: tableau.py
-Auteurs: Amine Boudraa - Yannick Gosset
-crée le 12/01/2019
-*/
+"""
+    Fichier tableau.py
+    Programme de test pour la fonction ChercherElt
+    Auteurs: Amine Boudraa - Yannick Gosset
+    Utilisation : executer en ligne de commande python tableau.py
 
-/* Programme de tests pour la fonction chercherElt  */
-/*Utilisation : executer en ligne de commande : python tableau.py
-*/
-
+"""
 
 import unittest
 
