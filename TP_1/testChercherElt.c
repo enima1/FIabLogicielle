@@ -25,7 +25,7 @@ void testNull(void){
 	tab.getValues = NULL;
 	tab.getDim = 0;
   int elt = 42;
-  CU_ASSERT_EQUAL(chercherElt(elt,tab), -1);	
+  CU_ASSERT_EQUAL(chercherElt(elt,tab), -1);
 }
 
 void testNullWithWrongDim(void){
@@ -34,7 +34,7 @@ void testNullWithWrongDim(void){
 	tab.getValues = NULL;
 	tab.getDim = taille;
   int elt = 42;
-  CU_ASSERT_EQUAL(chercherElt(elt,tab), -1);	
+  CU_ASSERT_EQUAL(chercherElt(elt,tab), -1);
 }
 
 void testEmpty(void){
@@ -43,7 +43,7 @@ void testEmpty(void){
 	tab.getValues = valeurs;
 	tab.getDim = 0;
   int elt = 42;
-  CU_ASSERT_EQUAL(chercherElt(elt,tab), -1);	
+  CU_ASSERT_EQUAL(chercherElt(elt,tab), -1);
 }
 
 void testDimTooBig(void){
@@ -53,7 +53,7 @@ void testDimTooBig(void){
 	tab.getValues = valeurs;
 	tab.getDim = taille;
   int elt = 42;
-  CU_ASSERT_EQUAL(chercherElt(elt,tab), -1);	
+  CU_ASSERT_EQUAL(chercherElt(elt,tab), -1);
 }
 
 void testNoElementFound(void){
@@ -64,17 +64,17 @@ void testNoElementFound(void){
 	tab.getValues = valeurs;
 	tab.getDim = taille;
   int elt = 42;
-  CU_ASSERT_EQUAL(chercherElt(elt,tab), -1);	
+  CU_ASSERT_EQUAL(chercherElt(elt,tab), -1);
 }
 
 void testElementFound(void){
 	Tableau tab;
 	int taille = 5;
 	int *valeurs = (int*) malloc ( sizeof(int) * taille );
-	for (int i = 0; i < taille; ++i){valeurs[i] = i;}	
+	for (int i = 0; i < taille; ++i){valeurs[i] = i;}
 	tab.getValues = valeurs;
   int elt = 0;
-  CU_ASSERT_EQUAL(chercherElt(elt,tab), 0);	
+  CU_ASSERT_EQUAL(chercherElt(elt,tab), 0);
 }
 
 
@@ -102,7 +102,7 @@ int main(void){
       ||(CU_add_test(pSuite,"testNullWithWrongDim", testNullWithWrongDim) == NULL)
       ||(CU_add_test(pSuite,"testDimTooBig", testDimTooBig) == NULL)
       ||(CU_add_test(pSuite,"testEmpty", testEmpty) == NULL)
-      ||(CU_add_test(pSuite,"testNoElementFound", testNoElementFound) == NULL) 
+      ||(CU_add_test(pSuite,"testNoElementFound", testNoElementFound) == NULL)
       ||(CU_add_test(pSuite,"testElementFound", testElementFound) == NULL)
       ){
     CU_cleanup_registry();

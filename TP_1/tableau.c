@@ -1,4 +1,4 @@
-/* File: triangle.c
+()/* File: triangle.c
 Auteurs: Amine Boudraa - Yannick Gosset
 crée le 12/01/2019
 */
