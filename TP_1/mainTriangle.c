@@ -1,6 +1,7 @@
 /* File: mainTriangle.c
 Auteurs: Amine Boudraa - Yannick Gosset
 crée le 08/01/2019
+Utilisation : gcc -o mainTriangle.c triangle.c
 */
 
 #include <stdio.h>
