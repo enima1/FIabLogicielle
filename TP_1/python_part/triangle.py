@@ -6,6 +6,8 @@
 
 """
 import unittest
+import csv
+import os
 
 
 def isEquilateral(a,b,c):
@@ -44,6 +46,26 @@ def typeTriangle(a,b,c):
              return findType(a,b,c);
          return -1
 
+def fill_tab_error(tab):
+    tab = [-1,-1,-1]
+    return tab
+
+def readData(filename):
+        tableau = []
+        count = 0
+        with open(filename, 'rb') as csvfile:
+            spamreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+            for row in spamreader:
+                for i in range(0,len(row)):
+                    tableau.append(row[i])
+                
+        if(len(row) > 3 or len(row) < 3):
+            tableau = [-1,-1,-1]
+        for i in range(0,len(row)):
+            if(float(row[i]) <=0):
+                tableau = [-1,-1,-1]
+        return tableau
+
 class typeTriangleTest(unittest.TestCase):
     def test_isEquilateral(self):
         result = isEquilateral(3,3,3)
@@ -63,6 +85,24 @@ class typeTriangleTest(unittest.TestCase):
     def test_typeTriangle_not_a_triangle(self):
         result = typeTriangle(1,1,3)
         self.assertEqual(-1,result)
+
+class readDataTest(unittest.TestCase):
+    def test_negative_val(self):
+        result_array = readData("python_test_files/negative_val.csv")
+        self.assertEqual([-1,-1,-1],result_array)
+    def test_nul_val(self):
+        result_array = readData("python_test_files/nul_val.csv")
+        self.assertEqual([-1,-1,-1],result_array)
+    def test_too_few_elem(self):
+        result_array = readData("python_test_files/too_few_elem.csv")
+        self.assertEqual([-1,-1,-1],result_array)
+    def test_too_much_elem(self):
+        result_array = readData("python_test_files/too_much_elem.csv")
+        self.assertEqual([-1,-1,-1],result_array)
+    def test_right_file(self):
+        result_array = readData("python_test_files/right_file.csv")
+        self.assertEqual(['1.1','2.2','3.3'],result_array)
+
 
 if __name__ == '__main__':
     unittest.main()
