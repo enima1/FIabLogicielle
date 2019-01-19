@@ -114,16 +114,5 @@ public class Recherche {
 			}
 		}
 		return trouve;
-	}
-	
-	public static void main(String[] args) {
-		
-		int[] tab = {3,2,1} ;
-		for(int i = 0 ; i < 3 ; i++)
-			System.out.println(tab[i]);
-		Recherche recherche = new Recherche();
-		boolean result = recherche.chercher5(3,tab);
-		System.out.println(result);
-	}
-	
+	}	
 }
