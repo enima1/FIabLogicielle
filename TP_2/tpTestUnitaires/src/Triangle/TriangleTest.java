@@ -100,7 +100,7 @@ public class TriangleTest extends TestCase {
 	public void test_TooFewFields() throws Exception{
 		Triangle triangle = new Triangle(1.1,2.2,3.3);
 		double[] ExpectedResult = new double[] {-1.0,-1.0,-1.0};
-		triangle.readData("file_toomfew_fields.csv");
+		triangle.readData("file_toofew_fields.csv");
 		Assert.assertArrayEquals(ExpectedResult, triangle.triangle,0);
 	}
 	
