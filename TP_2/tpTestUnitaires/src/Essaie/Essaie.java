@@ -21,6 +21,7 @@ public class Essaie {
 	}
 	
 	public double inverserVal() throws IllegalArgumentException {
+		if(val == 0) throw new IllegalArgumentException();
 		return 1/this.val;
 	}
 	
