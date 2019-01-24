@@ -72,8 +72,8 @@ public class RechercheTest {
 	public void test_chercher4_element_present() {
 		Recherche recherche = new Recherche();
 		int[] tableau = { 1, 2, 3, 4 };
-		boolean resultat = recherche.chercher4(4, tableau);
-		assertEquals(false, resultat);
+		boolean resultat = recherche.chercher4(2, tableau);
+		assertEquals(true, resultat);
 
 	}
 
@@ -81,8 +81,8 @@ public class RechercheTest {
 	public void test_chercher5_element_present() {
 		Recherche recherche = new Recherche();
 		int[] tableau = { 1, 2, 3, 4 };
-		boolean resultat = recherche.chercher4(4, tableau);
-		assertEquals(false, resultat);
+		boolean resultat = recherche.chercher4(2, tableau);
+		assertEquals(true, resultat);
 
 	}
 
