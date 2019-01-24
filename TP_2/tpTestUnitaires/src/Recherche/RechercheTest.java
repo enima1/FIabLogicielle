@@ -7,7 +7,7 @@ import org.junit.Test;
 public class RechercheTest {
 
 	@Test
-	public void test_array_null() throws Exception {
+	public void test_array_null() {
 		Recherche recherche = new Recherche();
 		int[] tableau = null;
 		int resultat = recherche.chercherElt(0, tableau);
@@ -16,7 +16,7 @@ public class RechercheTest {
 	}
 
 	@Test
-	public void test_array_empty() throws Exception {
+	public void test_array_empty() {
 		Recherche recherche = new Recherche();
 		int[] tableau = new int[0];
 		int resultat = recherche.chercherElt(1, tableau);
@@ -25,7 +25,7 @@ public class RechercheTest {
 	}
 
 	@Test
-	public void test_element_not_found() throws Exception {
+	public void test_element_not_found() {
 		Recherche recherche = new Recherche();
 		int[] tableau = { 1, 2, 3, 4 };
 		int resultat = recherche.chercherElt(-1, tableau);
@@ -34,7 +34,7 @@ public class RechercheTest {
 	}
 
 	@Test
-	public void test_element_found() throws Exception {
+	public void test_element_found() {
 		Recherche recherche = new Recherche();
 		int[] tableau = { 1, 2, 3, 4 };
 		int resultat = recherche.chercherElt(1, tableau);
@@ -42,7 +42,7 @@ public class RechercheTest {
 	}
 
 	@Test(timeout = 2000)
-	public void test_chercher1_element_present() throws Exception {
+	public void test_chercher1_element_present() {
 		Recherche recherche = new Recherche();
 		int[] tableau = { 1, 2, 3, 4 };
 		boolean resultat = recherche.chercher1(1, tableau);
@@ -51,7 +51,7 @@ public class RechercheTest {
 	}
 
 	@Test(timeout = 2000)
-	public void test_chercher2_element_present() throws Exception {
+	public void test_chercher2_element_present() {
 		Recherche recherche = new Recherche();
 		int[] tableau = { 1, 2, 3, 4 };
 		boolean resultat = recherche.chercher2(1, tableau);
@@ -60,7 +60,7 @@ public class RechercheTest {
 	}
 
 	@Test(timeout = 2000)
-	public void test_chercher3_element_present() throws Exception {
+	public void test_chercher3_element_present() {
 		Recherche recherche = new Recherche();
 		int[] tableau = { 1, 2, 3, 4 };
 		boolean resultat = recherche.chercher3(4, tableau);
@@ -69,7 +69,7 @@ public class RechercheTest {
 	}
 
 	@Test(timeout = 2000)
-	public void test_chercher4_element_present() throws Exception {
+	public void test_chercher4_element_present() {
 		Recherche recherche = new Recherche();
 		int[] tableau = { 1, 2, 3, 4 };
 		boolean resultat = recherche.chercher4(4, tableau);
@@ -77,8 +77,8 @@ public class RechercheTest {
 
 	}
 
-	@Test(timeout=2000)
-	public void test_chercher5_element_present() throws Exception {
+	@Test(timeout = 2000)
+	public void test_chercher5_element_present() {
 		Recherche recherche = new Recherche();
 		int[] tableau = { 1, 2, 3, 4 };
 		boolean resultat = recherche.chercher4(4, tableau);
