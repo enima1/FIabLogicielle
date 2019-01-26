@@ -1,3 +1,9 @@
+/**
+ * @author Amine Boudraa
+ * @author Yannick Gosset
+ * @file Triangle.java
+ */
+
 package Triangle;
 
 import java.io.BufferedReader;
@@ -11,7 +17,7 @@ public class Triangle {
 	private double side_2;
 	private double side_3;
 
-	double[] triangle;
+	private double[] triangle;
 
 	public Triangle(double side_1, double side_2, double side_3) {
 		this.side_1 = side_1;
@@ -20,22 +26,21 @@ public class Triangle {
 		triangle = new double[] { side_1, side_2, side_3 };
 	}
 
+	public Triangle(double[] triangle) {
+		setTriangle(triangle);
+	}
+	
 	public Triangle() {	
-		triangle = new double[3];
+		double[] triangle = new double[] {0,0,0};
+		setTriangle(triangle);
 	}
 
 	public boolean isEquilateral(double a, double b, double c) {
-		if (a == b && b == c && a == c)
-			return true;
-
-		return false;
+		return (a == b && b == c && a == c);
 	}
 
 	public boolean isIsocele(double a, double b, double c) {
-		if (a == b || b == c || a == c)
-			return true;
-
-		return false;
+		return (a == b || b == c || a == c);
 	}
 
 	public int findType(double a, double b, double c) {
@@ -75,7 +80,7 @@ public class Triangle {
 		}
 	}
 
-	public void setSides(double side, int indice) {
+	public void setSide(double side, int indice) {
 
 		switch (indice) {
 
@@ -96,7 +101,7 @@ public class Triangle {
 
 		}
 	}
-
+	
 	public int typeTriangle() {
 		if (side_1 <= 0 || side_2 <= 0 || side_3 <= 0)
 			return -1;
@@ -121,23 +126,35 @@ public class Triangle {
 	}
 
 	public void error_tab() {
-
-		setSides(-1.0, 0);
-		setSides(-1.0, 1);
-		setSides(-1.0, 2);
+		setSide(-1.0, 0);
+		setSide(-1.0, 1);
+		setSide(-1.0, 2);
+		triangle = new double[] {-1.0,-1.0,-1.0};
 
 	}
 
-	public void readData(String filename) throws IOException
+	public void setTriangle(double[] triangle) {
+		if(triangle.length != 3) return;
+		this.triangle = triangle;
+		setSide(triangle[0], 0);
+		setSide(triangle[1], 1);
+		setSide(triangle[2], 2);
+	}
+
+	public double[] getTriangle() {
+		return triangle;
+	}
+
+	public double [] readData(String filename) throws IOException
 	{
 		if(filename == null) {
 			error_tab();
-			return;
+			return triangle;
 		}
 		String[] extensions = filename.split("\\.");
 		if (extensions.length != 2 || !extensions[1].equals("csv")) {
 			error_tab();
-			return;
+			return triangle;
 		}
 
 		BufferedReader reader;
@@ -157,7 +174,7 @@ public class Triangle {
 
 		if (split_line.length != 3) {
 			error_tab();
-			return;
+			return triangle;
 		}
 
 		for (int i = 0; i < 3; i++) {
@@ -165,15 +182,15 @@ public class Triangle {
 				double number_read = Double.parseDouble(split_line[i]);
 				if (number_read <= 0) {
 					error_tab();
-					return;
+					return triangle;
 				}
-				setSides(number_read, i);
+				setSide(number_read, i);
 			} catch (NumberFormatException e) {
 				error_tab();
-				return;
+				return triangle;
 			}
 		}
-
+		return triangle;
 	}
 	
 	public static void main(String args[]) {

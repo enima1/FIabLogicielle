@@ -1,17 +1,26 @@
+/**
+ * @author Amine Boudraa
+ * @author Yannick Gosset
+ * @file Recherche.java
+ */
+
 package Recherche;
 
 public class Recherche {
 
 	public int chercherElt(int elt, int[] array) {
-
+		int pos = -1;
+		
 		if (array == null)
 			return -1;
 		if (array.length <= 0)
 			return -1;
-		for (int i = 0; i < array.length; i++)
-			if (array[i] == elt)
-				return i;
-		return -1;
+		if(array[0] == elt) pos = 0;
+		for (int i = 1; i < array.length; i++) {
+			if(array[i-1] > array[i]) return -1;//Pas trié
+			if (array[i] == elt && pos == -1) pos = i;
+		}
+		return pos;
 	}
 
 	public boolean chercher1(int x, int[] tab) {

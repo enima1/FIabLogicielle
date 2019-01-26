@@ -1,3 +1,9 @@
+/**
+ * @author Amine Boudraa
+ * @author Yannick Gosset
+ * @file RechercheTest.java
+ */
+
 package Recherche;
 
 import static org.junit.Assert.assertEquals;
@@ -40,7 +46,15 @@ public class RechercheTest {
 		int resultat = recherche.chercherElt(1, tableau);
 		assertEquals(0, resultat);
 	}
-
+	
+	@Test
+	public void test_element_found_unsorted() {
+		Recherche recherche = new Recherche();
+		int[] tableau = { 1, 3, 2, 4 };
+		int resultat = recherche.chercherElt(2, tableau);
+		assertEquals(-1, resultat);
+	}
+	
 	@Test(timeout = 2000)
 	public void test_chercher1_element_present() {
 		Recherche recherche = new Recherche();
@@ -49,7 +63,26 @@ public class RechercheTest {
 		assertEquals(true, resultat);
 
 	}
+	
+	@Test(timeout = 2000)
+	public void test_chercher1_element_present_non_trie() {
+		Recherche recherche = new Recherche();
+		int[] tableau = { 4, 2, 1, 3 };
+		boolean resultat = recherche.chercher1(1, tableau);
+		assertEquals(false, resultat);
 
+	}
+
+	@Test(timeout = 2000)
+	public void test_chercher1_element_non_present() {
+		Recherche recherche = new Recherche();
+		int[] tableau = { 4, 2, 1, 3 };
+		boolean resultat = recherche.chercher1(1, tableau);
+		assertEquals(false, resultat);
+
+	}
+
+	
 	@Test(timeout = 2000)
 	public void test_chercher2_element_present() {
 		Recherche recherche = new Recherche();
