@@ -44,6 +44,8 @@ public class Magasin {
 	/*
 	 * recherche dichotomique de l'Article article dans le stock qui 
 	 * est ordonnÃ© de maniÃ¨re croissante 
+	 * Erreur : i = 1 alors que i doit être égal à 0
+	 * On continue d'itérer même si on trouve
 	 */
 	public Boolean chercherDicho1(Article article) {
 		int i, j, n, m;
@@ -63,7 +65,9 @@ public class Magasin {
 		return article.getPrix() == this.stock[m].getPrix();		
 	}
 	
-	/* version2 de la recherche */
+	/* version2 de la recherche
+	 * Renvoie toujours vrai sans tenir compte de l'ordre du stock.
+	 *  */
 	public Boolean chercherDicho2(Article article) {
 		int i, j, n, m;
 		n = this.nbArticle;
@@ -88,7 +92,9 @@ public class Magasin {
 		return found;		
 	}
 	
-	/* version 3 de la recherche */
+	/* version 3 de la recherche 
+	 * Erreur : i <= j On s'arrête une fois trop tôt
+	 * */
 	public Boolean chercherDicho3(Article article) {
 		int i, j, n, m;
 		n = this.nbArticle;
@@ -113,7 +119,9 @@ public class Magasin {
 		return found;		
 	}
 	
-	/*version 4 */
+	/*version 4 
+	 * Ne tient pas compte de l'ordre du stock
+	 * */
 	public Boolean chercherDicho4(Article article) {
 		int i, j, n, m;
 		n = this.nbArticle;
@@ -138,7 +146,11 @@ public class Magasin {
 		}
 		return false;
 	}
-
+	
+	/*
+	 * Renvoie vrai si les prix sont différents !?
+	 * 
+	 * */
 	public Boolean chercherDicho5(Article article) {
 		int n = this.nbArticle;
 		int i = 0;
@@ -154,6 +166,30 @@ public class Magasin {
 			}
 			else {
 				j = m;
+			}
+		}
+		return false;
+	}
+	
+	public Boolean chercherDichoEtu(Article article) {
+		if(article == null) return false;
+		int n = this.nbArticle;
+		int min = 0;
+		int max = n;
+		int m = 0; 
+		while (min != max) {
+			m = (min + max )/2;
+			if (this.stock[m].getPrix() < article.getPrix()) {	
+				min = m + 1;
+			}
+			else if (this.stock[m].getPrix() == article.getPrix()){
+				return true;
+			}
+			else {
+				max = m;
+			}
+			if (min > n - 1 || max < 0) {
+				return false;
 			}
 		}
 		return false;
