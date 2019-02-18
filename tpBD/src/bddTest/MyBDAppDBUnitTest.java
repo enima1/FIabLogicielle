@@ -35,6 +35,7 @@ public class MyBDAppDBUnitTest extends DBTestCase{
 	@Test
 	public void testFindName() {
 		String expected = "Yannick";
+		int id = 1;
 		String name = null;
 		
 		assertEquals(expected, name);
@@ -56,7 +57,7 @@ public class MyBDAppDBUnitTest extends DBTestCase{
 	 */
 	@Test
 	public void testAddName() {
-		String expected = null;
+		String expected = "Bob";
 		int id = 200;
 		String name = "Bob";
 		
@@ -82,7 +83,7 @@ public class MyBDAppDBUnitTest extends DBTestCase{
 	public void testDeleteName() {
 		String expected = null;
 		int id = 42;
-		String name = "Bob";
+		String name = null;
 		
 		assertEquals(expected, name);
 	}

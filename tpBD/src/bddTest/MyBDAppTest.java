@@ -65,11 +65,11 @@ public class MyBDAppTest {
 	 */
 	@Test
 	public void testAddName() {
-		String expected = null;
+		String expected = "Bob";
 		int id = 200;
 		String name = "Bob";
 		try {
-			app.addName(id, expected);
+			app.addName(id, name);
 			name = app.findName(id);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -93,7 +93,7 @@ public class MyBDAppTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		assertEquals(expected, name);
+		assertNotEquals(expected, name);
 	}
 
 	/**
@@ -103,7 +103,7 @@ public class MyBDAppTest {
 	public void testDeleteName() {
 		String expected = null;
 		int id = 42;
-		String name = "Bob";
+		String name = null;
 		try {
 			app.addName(id, name);
 			name = app.findName(id);
