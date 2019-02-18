@@ -1,10 +1,13 @@
+/**
+ * @author Amine Boudraa
+ * @author Yannick Gosset
+ * @File MyBDApp.java
+ */
 package bdd;
 
-import java.sql.DriverManager;
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import java.sql.Connection;
 
 
 public class MyBDApp {
@@ -16,7 +19,6 @@ public class MyBDApp {
 	private Connection newConnection() throws SQLException {
 		Connect conn = new Connect(url, user, passwd);
 		return conn.getConnection();
-		//return DriverManager.getConnection(url, user, passwd);
 	}
 	
 	public void addName(int id, String name) throws SQLException {

@@ -1,31 +1,32 @@
 /**
  * @author Amine Boudraa
  * @author Yannick Gosset
- * @File MyBDAppTest.java
+ * @File MyBDAppDBUnitTest.java
  */
 package bddTest;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.*;
 
 import java.sql.SQLException;
 
+import org.dbunit.DBTestCase;
+import org.dbunit.dataset.IDataSet;
+import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import bdd.MyBDApp;
-/*On remarque que l'on modifie la base de données
- *  pour les tests d'ajout et de suppression
- *   (ce qui n'est pas pratique sur l'application).*/
-public class MyBDAppTest {
-	private static MyBDApp app;
-	
-	/**
-	 * Initialise la BD.
-	 */
+
+public class MyBDAppDBUnitTest extends DBTestCase{
+
 	@BeforeClass
 	public static void initialiser() {
-		app = new MyBDApp();
+		System.out.println("hello");
+	}
+	
+	@AfterClass
+	public static void finaliser() {
+		System.out.println("ciao");
 	}
 	
 	/**
@@ -35,12 +36,7 @@ public class MyBDAppTest {
 	public void testFindName() {
 		String expected = "Yannick";
 		String name = null;
-		try {
-			name = app.findName(1);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 		assertEquals(expected, name);
 	}
 	
@@ -51,12 +47,7 @@ public class MyBDAppTest {
 	public void testFindNameFail() {
 		String expected = null;
 		String name = null;
-		try {
-			name = app.findName(1888);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 		assertEquals(expected, name);
 	}
 
@@ -68,13 +59,7 @@ public class MyBDAppTest {
 		String expected = null;
 		int id = 200;
 		String name = "Bob";
-		try {
-			app.addName(id, expected);
-			name = app.findName(id);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 		assertEquals(expected, name);
 	}
 
@@ -86,13 +71,7 @@ public class MyBDAppTest {
 		String expected = null;
 		int id = 1;
 		String name = "Bob";
-		try {
-			app.addName(id, name);
-			name = app.findName(id);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 		assertEquals(expected, name);
 	}
 
@@ -104,13 +83,7 @@ public class MyBDAppTest {
 		String expected = null;
 		int id = 42;
 		String name = "Bob";
-		try {
-			app.addName(id, name);
-			name = app.findName(id);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 		assertEquals(expected, name);
 	}
 	
@@ -122,13 +95,14 @@ public class MyBDAppTest {
 		String expected = null;
 		int id = 999;
 		String name = null;
-		try {
-			app.deleteName(id);
-			name = app.findName(id);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 		assertEquals(expected, name);
 	}
+
+	@Override
+	protected IDataSet getDataSet() throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

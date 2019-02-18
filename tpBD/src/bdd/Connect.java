@@ -1,3 +1,9 @@
+/**
+ * @author Amine Boudraa
+ * @author Yannick Gosset
+ * @File Connect.java
+ * Classe récupérer sur ametice
+ */
 package bdd;
 
 import java.sql.Connection;

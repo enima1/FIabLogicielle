@@ -1,3 +1,8 @@
+/**
+ * @author Amine Boudraa
+ * @author Yannick Gosset
+ * @File ConnectTest.java
+ */
 package bddTest;
 
 import static org.junit.Assert.assertEquals;
