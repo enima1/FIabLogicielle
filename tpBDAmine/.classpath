@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="C:/Users/amine/Downloads/cmder_mini/Fiabrendu/FiabLogicielle/tpBD/dbunit-2.5.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/amine/Downloads/cmder_mini/Fiabrendu/FiabLogicielle/tpBD/mysql-connector-java-5.0.8-bin.jar"/>
+	<classpathentry kind="lib" path="C:/Users/amine/Downloads/cmder_mini/Fiabrendu/FiabLogicielle/tpBD/slf4j-api-1.7.25.jar"/>
+	<classpathentry kind="lib" path="C:/Users/amine/Downloads/cmder_mini/Fiabrendu/FiabLogicielle/tpBD/slf4j-simple-1.7.25.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
