@@ -6,7 +6,7 @@
     <span style="font-weight:bold"><xsl:value-of select="name"/> - </span>
     <xsl:value-of select="price"/>
     </div>
-  <div style="margin-left:20px;margin-bottom:1em;font-size:12pt">
+  <div style="margin-left:30px;margin-bottom:1em;font-size:12pt">
     <p>
     <xsl:value-of select="description"/>
     <span style="font-style:bold"> (<xsl:value-of select="prct"/> %)</span>
